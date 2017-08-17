@@ -23,10 +23,10 @@ public class IndexController extends BaseController {
 
 	@RequestMapping("/index")
 	public String index(HttpServletRequest request) {
-		SessionInfo sessionInfo = (SessionInfo) request.getSession().getAttribute(GlobalConstant.SESSION_INFO);
+	/*	SessionInfo sessionInfo = (SessionInfo) request.getSession().getAttribute(GlobalConstant.SESSION_INFO);
 		if ((sessionInfo != null) && (sessionInfo.getId() != null)) {
 			return "/index";
-		}
+		}*/
 		return "/login";
 	}
 
