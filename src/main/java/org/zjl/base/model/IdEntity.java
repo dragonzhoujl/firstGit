@@ -1,5 +1,7 @@
 package org.zjl.base.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +23,7 @@ public abstract class IdEntity {
 	
 	protected Long version;
 	
-	protected Long lastModifyTime;
+	protected Date lastModifyTime;
 	
 	
 
@@ -42,13 +44,13 @@ public abstract class IdEntity {
 	public void setVersion(Long version) {
 		this.version = version;
 	}
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "lastmodifytime", length = 19)
-	public Long getLastModifyTime() {
+	public Date getLastModifyTime() {
 		return lastModifyTime;
 	}
 
-	public void setLastModifyTime(Long lastModifyTime) {
+	public void setLastModifyTime(Date lastModifyTime) {
 		this.lastModifyTime = lastModifyTime;
 	}
 	

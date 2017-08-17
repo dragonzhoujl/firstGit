@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.zjl.base.controller.BaseController;
+import org.zjl.base.model.Json;
+import org.zjl.base.model.SessionInfo;
+import org.zjl.framework.constant.GlobalConstant;
 import org.zjl.user.model.User;
 import org.zjl.user.service.UserServiceI;
 
@@ -33,8 +36,9 @@ public class IndexController extends BaseController {
 	@ResponseBody
 	@RequestMapping("/login")
 	public Json login(User user, HttpSession session) {
+		System.out.println("dao ciyiyou2 ");
 		Json j = new Json();
-		User sysuser = userService.login(user);
+		/*User sysuser = userService.login(user);
 		if (sysuser != null) {
 			j.setSuccess(true);
 			j.setMsg("登陆成功！");
@@ -44,16 +48,29 @@ public class IndexController extends BaseController {
 			sessionInfo.setLoginname(sysuser.getLoginname());
 			sessionInfo.setName(sysuser.getName());
 			// user.setIp(IpUtil.getIpAddr(getRequest()));
-			sessionInfo.setResourceList(userService.listResource(sysuser.getId()));
-			sessionInfo.setResourceAllList(resourceService.listAllResource());
+			//sessionInfo.setResourceList(userService.listResource(sysuser.getId()));
+			//sessionInfo.setResourceAllList(resourceService.listAllResource());
 			session.setAttribute(GlobalConstant.SESSION_INFO, sessionInfo);
 		} else {
 			j.setMsg("用户名或密码错误！");
-		}
+		}*/
+		j.setSuccess(true);
+		j.setMsg("登陆成功！");
+
+		SessionInfo sessionInfo = new SessionInfo();
+		//sessionInfo.setId();
+		sessionInfo.setLoginname("dada");
+		sessionInfo.setName("bubu");
+		
+		// user.setIp(IpUtil.getIpAddr(getRequest()));
+		//sessionInfo.setResourceList(userService.listResource(sysuser.getId()));
+		//sessionInfo.setResourceAllList(resourceService.listAllResource());
+		session.setAttribute(GlobalConstant.SESSION_INFO, sessionInfo);
 		return j;
+		
 	}
 
-	@ResponseBody
+	/*@ResponseBody
 	@RequestMapping("/logout")
 	public Json logout(HttpSession session) {
 		Json j = new Json();
@@ -63,6 +80,6 @@ public class IndexController extends BaseController {
 		j.setSuccess(true);
 		j.setMsg("注销成功！");
 		return j;
-	}
+	}*/
 
 }
